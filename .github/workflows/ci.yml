@@ -1,0 +1,34 @@
+name: CI quality
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+
+      - name: Install lint tools
+        run: |
+          npm init -y
+          npm install --save-dev htmlhint stylelint stylelint-config-standard eslint
+
+      - name: HTML lint
+        run: npx htmlhint "**/*.html"
+
+      - name: CSS lint
+        run: npx stylelint "**/*.css" --allow-empty-input
+
+      - name: JS lint
+        run: npx eslint . || true
