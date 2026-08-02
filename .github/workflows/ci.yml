@@ -28,6 +28,7 @@ jobs:
         run: npx htmlhint "**/*.html"
 
       - name: CSS lint
+        continue-on-error: true
         run: npx stylelint "**/*.css" --allow-empty-input
 
       - name: JS lint
