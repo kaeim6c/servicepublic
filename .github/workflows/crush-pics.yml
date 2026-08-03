@@ -20,5 +20,5 @@ jobs:
       - name: Optimize images with Crush.pics
         uses: crush-pics/crush-pics-github-action@master
         with:
-          repo-token: ${{ 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 }}
-          api-key: ${{ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbiI6ImthZWltNmNAZ21haWwuY29tIiwiZW1haWwiOm51bGwsInBsYW4iOiJmcmVlIiwidG9rZW5fY3JlYXRlZF9hdCI6MTc4NTY5NzAxOSwicXVvdGEiOnsidG90YWxfYnl0ZXMiOjI1MDAwMDAwLCJ1c2VkX2J5dGVzIjowfX0.jba_qZPfFeLyjJ7GOZET4CMQB67njg-BhAYAT_8g0h0 }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          api-key: ${{ secrets.CRUSH_API_KEY }}
